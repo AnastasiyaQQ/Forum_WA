@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Комментарии к записи</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <div class="container">
+        <h2 id="post-title-placeholder">Комментарии</h2> 
+        <div id="comment-list">
+            
+        </div>
+        <div id="pagination">
+           
+        </div>
+        <div class="form-actions" style="margin-top: 20px;">
+            <button id="add-comment-button">Добавить комментарий</button>
+        </div>
+    </div>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/comments.js"></script> 
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const postId = getQueryParam('postId');
+            const addCommentButton = document.getElementById('add-comment-button');
+            if (addCommentButton && postId) {
+                 if (!isLoggedIn()) {
+                    addCommentButton.style.display = 'none';
+                 } else {
+                    addCommentButton.onclick = () => {
+                         window.location.href = `/comment-create.html?postId=${postId}`;
+                    };
+                 }
+            }
+
+             if (typeof loadCommentsForPost === 'function' && postId) {
+                 loadCommentsForPost();
+             } else {
+                  console.error("loadCommentsForPost function not found or postId missing.");
+                  document.getElementById('comment-list').innerHTML = "<p class='error-message'>Could not load comments.</p>";
+             }
+        });
+    </script>
+</body>
+</html>

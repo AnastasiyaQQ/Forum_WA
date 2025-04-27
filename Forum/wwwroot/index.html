@@ -1,0 +1,20 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Forum Redirect</title>
+    <script src="/js/common.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            if (isLoggedIn()) {
+                 const user = getUserInfo();
+                 window.location.replace(user?.role === 'Admin' ? '/admin-main.html' : '/main.html');
+            } else {
+                window.location.replace('/login.html');
+            }
+        });
+    </script>
+</head>
+<body>
+    <p>Loading...</p>
+</body>
+</html>

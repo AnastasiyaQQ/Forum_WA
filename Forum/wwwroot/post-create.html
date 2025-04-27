@@ -1,0 +1,33 @@
+﻿<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Новая запись</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <div class="container">
+        <h2>Новая запись</h2>
+        <form id="create-post-form">
+            <div id="form-message" style="display: none;"></div>
+            <div>
+                <label for="title">Заголовок</label>
+                <input type="text" id="title" name="title" required maxlength="100">
+            </div>
+            <div>
+                <label for="content">Содержание</label>
+                <textarea id="content" name="content" required maxlength="2000"></textarea>
+            </div>
+            <div class="form-actions">
+                <button type="submit" class="button-primary">Сохранить</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="/js/common.js"></script>
+    <script src="/js/posts.js"></script>
+</body>
+</html>
