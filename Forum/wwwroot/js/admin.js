@@ -120,7 +120,6 @@ async function confirmAdminDeletePost(postId) {
         try {
             // API проверяет роль администратора
             const result = await fetchApi(`/posts/${postId}`, 'DELETE'); 
-            // API handles admin permission
             alert(result.message || 'Запись успешно удалена (Admin).');
             loadAdminPosts(); 
         } catch (error) {
