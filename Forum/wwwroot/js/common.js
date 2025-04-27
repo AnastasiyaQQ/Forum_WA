@@ -120,7 +120,6 @@ async function fetchApi(endpoint, method = 'GET', body = null, requiresAuth = tr
     }
 }
 
-// --- UI Helpers ---
 function showMessage(elementId, message, isError = false) {
     const element = document.getElementById(elementId);
     if (element) {
